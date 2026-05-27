@@ -1,38 +1,44 @@
-# Jogo da Forca com Programação Orientada a Objetos (Java)
+# Sistema Bancário com Programação Orientada a Objetos (Java)
 
-Este repositório contém a resolução do desafio de Programação Orientada a Objetos (POO) da DIO (Digital Innovation One). O projeto consiste em um **Jogo da Forca** desenvolvido em Java, focado na aplicação prática dos pilares da POO e na lógica de interação via console.
+Este projeto foi desenvolvido como parte de um desafio da DIO (Digital Innovation One) para consolidar conceitos fundamentais de Programação Orientada a Objetos (POO) em Java. A aplicação simula um sistema bancário interativo via console.
 
-## 🎯 Objetivo do Desafio
-O objetivo foi construir um jogo funcional que utilize conceitos de classes, objetos, encapsulamento e tratamento de exceções, proporcionando uma experiência interativa ao usuário enquanto demonstra uma estrutura de código organizada.
+## 🚀 Tecnologias Utilizadas
+
+*   **Java 21**: Utilizando recursos modernos como *Records*.
+*   **Maven**: Gerenciamento de dependências e automação de build.
+*   **Lombok**: Redução de código boilerplate.
+*   **JUnit 5**: Estrutura para testes unitários.
 
 ## 🧠 Conceitos de POO Aplicados
 
-O desenvolvimento seguiu os princípios fundamentais da POO:
+O projeto foi estruturado para demonstrar a aplicação prática dos quatro pilares da POO:
 
-1.  **Classes e Objetos**: O jogo é estruturado em classes com responsabilidades bem definidas, como `Partida` (lógica do jogo), `Gallows` (renderização visual) e `JogoForca` (fluxo principal).
-2.  **Encapsulamento**: Atributos como a palavra secreta e a contagem de erros são privados na classe `Partida`, sendo acessados apenas por métodos que validam a integridade do estado do jogo.
-3.  **Abstração**: Uso de enums (`Categoria`) e estruturas de dados (Sets para letras tentadas) para abstrair complexidades da lógica de busca e estado.
-4.  **Tratamento de Exceções**: Implementação da classe `ForcaException` para lidar com entradas inválidas (como números ou letras repetidas), garantindo que o programa não encerre abruptamente.
+1.  **Abstração**: Criação da classe abstrata `Conta`, que define as características e comportamentos comuns a qualquer tipo de conta bancária, sem permitir sua instanciação direta.
+2.  **Encapsulamento**: Atributos das classes são protegidos (uso de `protected` e `private`) e acessados/manipulados através de métodos específicos (Getters e métodos de negócio como `depositar` e `sacar`), garantindo a integridade dos dados.
+3.  **Herança**: As classes `ContaCorrente` e `ContaPoupanca` herdam da classe base `Conta`, reutilizando seu código e especializando o comportamento conforme necessário.
+4.  **Polimorfismo**: Demonstrado na implementação do método `imprimirExtrato`, onde cada subclasse provê sua própria implementação específica, e no uso de referências do tipo `Conta` para manipular diferentes tipos de contas.
 
-## 🛠️ Tecnologias e Recursos Utilizados
+## 🛠️ Funcionalidades
 
-*   **Java 21**: Uso de recursos modernos como *Text Blocks* (para o desenho da forca) e *Records*.
-*   **Maven**: Gerenciamento de dependências e build.
-*   **Lombok**: Utilizado para simplificar o código (Getters).
-*   **JUnit 5**: Testes unitários para validar a lógica de vitória, derrota e validação de letras.
+*   **Criação de Contas**: Suporte para Conta Corrente e Conta Poupança.
+*   **Operações Básicas**: Depósitos e saques com validação de saldo.
+*   **Transferências**: Transferência comum entre contas e transferência via **PIX**.
+*   **Investimentos**: Possibilidade de criar e acompanhar investimentos associados à conta.
+*   **Histórico de Transações**: Registro de todas as operações realizadas.
+*   **Interface via Console**: Menu interativo para navegação pelas funcionalidades.
 
-## 🚀 Funcionalidades do Jogo
+## 📋 Como Executar
 
-*   **Categorias de Palavras**: As palavras são organizadas por categorias (Animais, Frutas, Países, etc.).
-*   **Interface Gráfica no Console**: Representação visual da forca que evolui conforme o jogador erra as letras.
-*   **Validação Inteligente**: O sistema impede o uso de caracteres inválidos ou letras que já foram tentadas.
-*   **Fluxo Contínuo**: Opção de jogar várias partidas sem sair do programa.
-*   **Sistema de Menus**: Menu principal que permite alternar entre o jogo e outros módulos do laboratório.
+Certifique-se de ter o Java 21 e o Maven instalados em sua máquina.
 
-## 📋 Como Executar o Projeto
-
-1.  Certifique-se de ter o **Java 21** e o **Maven** instalados.
-2.  Clone o repositório.
+1.  Clone o repositório:
+    ```bash
+    git clone https://github.com/seu-usuario/lab-banco-poo.git
+    ```
+2.  Navegue até o diretório do projeto:
+    ```bash
+    cd lab-banco-poo
+    ```
 3.  Compile o projeto:
     ```bash
     mvn compile
@@ -41,13 +47,6 @@ O desenvolvimento seguiu os princípios fundamentais da POO:
     ```bash
     mvn exec:java
     ```
-5.  Para rodar os testes:
-    ```bash
-    mvn test
-    ```
-
-## 📝 Relato de Experiência
-O desenvolvimento do Jogo da Forca permitiu explorar a manipulação de strings e coleções em Java de forma lúdica. A principal dificuldade foi gerenciar o estado da palavra mascarada, o que foi resolvido eficientemente com o uso de `StringBuilder` e um `Set` de letras adivinhadas. A separação da lógica de visualização (classe `Gallows`) da lógica de regras (classe `Partida`) facilitou a manutenção e a legibilidade do código.
 
 ---
-*Este projeto foi desenvolvido como parte de um laboratório prático da DIO.*
+*Projeto desenvolvido para fins educacionais na plataforma DIO.*
