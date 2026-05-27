@@ -4,8 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.dio.lab</groupId>
-    <artifactId>lab-banco-poo</artifactId>
+    <artifactId>jogo-da-forca-poo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>Jogo da Forca POO</name>
+    <description>Desafio DIO: Jogo da Forca em Java Console utilizando POO</description>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -23,6 +25,12 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
+            <version>5.11.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>5.11.0</version>
             <scope>test</scope>
         </dependency>
