@@ -1,49 +1,52 @@
-# Infraestrutura como Código: Script de Criação de Estrutura de Usuários, Diretórios e Permissões
+# Sistema Bancário com Programação Orientada a Objetos (Java)
 
-Este projeto consiste em um script de automação para a criação de uma infraestrutura básica em um ambiente Linux. O script automatiza a criação de diretórios, grupos de usuários, usuários e a definição de permissões de acesso, facilitando o provisionamento de novas máquinas virtuais.
+Este projeto foi desenvolvido como parte de um desafio da DIO (Digital Innovation One) para consolidar conceitos fundamentais de Programação Orientada a Objetos (POO) em Java. A aplicação simula um sistema bancário interativo via console.
 
-## Descrição do Projeto
+## 🚀 Tecnologias Utilizadas
 
-O objetivo é garantir que toda a infraestrutura necessária esteja pronta para uso assim que o script for executado, seguindo as melhores práticas de Infraestrutura como Código (IaC).
+*   **Java 21**: Utilizando recursos modernos como *Records*.
+*   **Maven**: Gerenciamento de dependências e automação de build.
+*   **Lombok**: Redução de código boilerplate.
+*   **JUnit 5**: Estrutura para testes unitários.
 
-### O que o script faz:
+## 🧠 Conceitos de POO Aplicados
 
-1.  **Criação de Diretórios:**
-    *   `/publico`: Acesso total para todos os usuários.
-    *   `/adm`: Acesso restrito ao grupo administrativo.
-    *   `/ven`: Acesso restrito ao grupo de vendas.
-    *   `/sec`: Acesso restrito ao grupo de secretariado.
+O projeto foi estruturado para demonstrar a aplicação prática dos quatro pilares da POO:
 
-2.  **Criação de Grupos de Usuários:**
-    *   `GRP_ADM`
-    *   `GRP_VEN`
-    *   `GRP_SEC`
+1.  **Abstração**: Criação da classe abstrata `Conta`, que define as características e comportamentos comuns a qualquer tipo de conta bancária, sem permitir sua instanciação direta.
+2.  **Encapsulamento**: Atributos das classes são protegidos (uso de `protected` e `private`) e acessados/manipulados através de métodos específicos (Getters e métodos de negócio como `depositar` e `sacar`), garantindo a integridade dos dados.
+3.  **Herança**: As classes `ContaCorrente` e `ContaPoupanca` herdam da classe base `Conta`, reutilizando seu código e especializando o comportamento conforme necessário.
+4.  **Polimorfismo**: Demonstrado na implementação do método `imprimirExtrato`, onde cada subclasse provê sua própria implementação específica, e no uso de referências do tipo `Conta` para manipular diferentes tipos de contas.
 
-3.  **Criação de Usuários e Atribuição aos Grupos:**
-    *   **ADM:** carlos, maria, joao
-    *   **VEN:** debora, sebastiana, roberto
-    *   **SEC:** josefina, amanda, rogerio
-    *   Todos os usuários são criados com o shell `/bin/bash` e uma senha padrão definida (`Senha123`).
+## 🛠️ Funcionalidades
 
-4.  **Definição de Permissões:**
-    *   O dono de todos os diretórios criados é o usuário `root`.
-    *   Cada diretório restrito pertence ao seu respectivo grupo.
-    *   As permissões dos diretórios restritos são configuradas para que apenas o dono e os membros do grupo tenham acesso total (`770`).
-    *   O diretório `/publico` possui permissão total para todos os usuários (`777`).
+*   **Criação de Contas**: Suporte para Conta Corrente e Conta Poupança.
+*   **Operações Básicas**: Depósitos e saques com validação de saldo.
+*   **Transferências**: Transferência comum entre contas e transferência via **PIX**.
+*   **Investimentos**: Possibilidade de criar e acompanhar investimentos associados à conta.
+*   **Histórico de Transações**: Registro de todas as operações realizadas.
+*   **Interface via Console**: Menu interativo para navegação pelas funcionalidades.
 
-## Como Executar
+## 📋 Como Executar
 
-1.  Clone o repositório ou baixe o arquivo `iac1.sh`.
-2.  Dê permissão de execução ao script:
+Certifique-se de ter o Java 21 e o Maven instalados em sua máquina.
+
+1.  Clone o repositório:
     ```bash
-    chmod +x iac1.sh
+    git clone https://github.com/seu-usuario/lab-banco-poo.git
     ```
-3.  Execute o script como superusuário (root):
+2.  Navegue até o diretório do projeto:
     ```bash
-    sudo ./iac1.sh
+    cd lab-banco-poo
+    ```
+3.  Compile o projeto:
+    ```bash
+    mvn compile
+    ```
+4.  Execute a aplicação:
+    ```bash
+    mvn exec:java
     ```
 
-## Pré-requisitos
-
-*   Sistema Operacional Linux.
-*   OpenSSL instalado (para a geração de senhas criptografadas).
+---
+*Projeto desenvolvido para fins educacionais na plataforma DIO.*
